@@ -1,0 +1,111 @@
+{
+    "startupDelay": 3,
+    "netfile": "network.net",
+    "deviceDistribution": [
+        {
+            "port": 7201,
+            "directory": "router-1"
+        },
+        {
+            "port": 7202,
+            "directory": "router-2"
+        },
+        {
+            "port": 7203,
+            "directory": "pc"
+        }
+    ],
+    "autoConfiguration": {
+        "maxParallelTaskLimit": 64,
+        "devices": [
+            {
+                "port": 3001,
+                "file": "Router-NanChang.txt"
+            },
+            {
+                "port": 3002,
+                "file": "Router-GanZhou.txt"
+            },
+            {
+                "port": 3003,
+                "file": "Router-YiChun.txt"
+            },
+            {
+                "port": 3004,
+                "file": "Router-JiAn.txt"
+            },
+            {
+                "port": 3005,
+                "file": "Router-ShangRao.txt"
+            },
+            {
+                "port": 3006,
+                "file": "Router-FuZhou.txt"
+            },
+            {
+                "port": 3007,
+                "file": "Router-JiuJiang.txt"
+            },
+            {
+                "port": 3008,
+                "file": "Router-JingDeZhen.txt"
+            },
+            {
+                "port": 3009,
+                "file": "Router-PingXiang.txt"
+            },
+            {
+                "port": 3010,
+                "file": "Router-XinYu.txt"
+            },
+            {
+                "port": 3011,
+                "file": "Router-YingTan.txt"
+            },
+            {
+                "port": 5001,
+                "file": "PC-NanChang.txt"
+            },
+            {
+                "port": 5002,
+                "file": "PC-GanZhou.txt"
+            },
+            {
+                "port": 5003,
+                "file": "PC-YiChun.txt"
+            },
+            {
+                "port": 5004,
+                "file": "PC-JiAn.txt"
+            },
+            {
+                "port": 5005,
+                "file": "PC-ShangRao.txt"
+            },
+            {
+                "port": 5006,
+                "file": "PC-FuZhou.txt"
+            },
+            {
+                "port": 5007,
+                "file": "PC-JiuJiang.txt"
+            },
+            {
+                "port": 5008,
+                "file": "PC-JingDeZhen.txt"
+            },
+            {
+                "port": 5009,
+                "file": "PC-PingXiang.txt"
+            },
+            {
+                "port": 5010,
+                "file": "PC-XinYu.txt"
+            },
+            {
+                "port": 5011,
+                "file": "PC-YingTan.txt"
+            }
+        ]
+    }
+}

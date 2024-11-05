@@ -1,0 +1,32 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-XinYu
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.10.1 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.103.10 255.255.255.0
+        no shutdown
+    exit
+    interface f1/0
+        ip address 204.210.104.10 255.255.255.0
+        no shutdown
+    exit
+
+    router rip
+        version 2
+        network 204.210.10.0
+        network 204.210.103.0
+        network 204.210.104.0
+    exit
+exit

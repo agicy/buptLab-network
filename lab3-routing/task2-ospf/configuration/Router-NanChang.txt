@@ -1,0 +1,41 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-NanChang
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.1.1 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.31.1 255.255.255.0
+        no shutdown
+    exit
+    interface f1/0
+        ip address 204.210.51.1 255.255.255.0
+        no shutdown
+    exit
+    interface f1/1
+        ip address 204.210.61.1 255.255.255.0
+        no shutdown
+    exit
+    interface f2/0
+        ip address 204.210.71.1 255.255.255.0
+        no shutdown
+    exit
+
+    router ospf 720
+        network 204.210.1.0 0.0.0.255 area 0
+        network 204.210.31.0 0.0.0.255 area 0
+        network 204.210.51.0 0.0.0.255 area 0
+        network 204.210.61.0 0.0.0.255 area 0
+        network 204.210.71.0 0.0.0.255 area 0
+    exit
+exit

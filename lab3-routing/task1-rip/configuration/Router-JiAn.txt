@@ -1,0 +1,47 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-JiAn
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.4.1 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.42.4 255.255.255.0
+        no shutdown
+    exit
+    interface f1/0
+        ip address 204.210.43.4 255.255.255.0
+        no shutdown
+    exit
+    interface f1/1
+        ip address 204.210.64.4 255.255.255.0
+        no shutdown
+    exit
+    interface f2/0
+        ip address 204.210.94.4 255.255.255.0
+        no shutdown
+    exit
+    interface f2/1
+        ip address 204.210.104.4 255.255.255.0
+        no shutdown
+    exit
+
+    router rip
+        version 2
+        network 204.210.4.0
+        network 204.210.42.0
+        network 204.210.43.0
+        network 204.210.64.0
+        network 204.210.94.0
+        network 204.210.104.0
+    exit
+exit

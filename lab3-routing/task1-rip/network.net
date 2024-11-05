@@ -1,0 +1,317 @@
+autostart = true
+
+[localhost:7201]
+    port = 7201
+    udp = 11000
+    workingdir = ..\dynagen-tmp\router-1\
+
+    [[router Router-NanChang]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3001
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        slot2 = PA-2FE-TX
+        f0/0 = PC-NanChang f0/0
+        f0/1 = Router-YiChun f0/1
+        f1/0 = Router-ShangRao f0/1
+        f1/1 = Router-FuZhou f0/1
+        f2/0 = Router-JiuJiang f0/1
+
+    [[router Router-GanZhou]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3002
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        f0/0 = PC-GanZhou f0/0
+        f0/1 = Router-JiAn f0/1
+        f1/0 = Router-FuZhou f1/0
+
+    [[router Router-YiChun]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3003
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        slot2 = PA-2FE-TX
+        f0/0 = PC-YiChun f0/0
+        f0/1 = Router-NanChang f0/1
+        f1/0 = Router-JiAn f1/0
+        f1/1 = Router-PingXiang f0/1
+        f2/0 = Router-XinYu f0/1
+
+    [[router Router-JiAn]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3004
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        slot2 = PA-2FE-TX
+        f0/0 = PC-JiAn f0/0
+        f0/1 = Router-GanZhou f0/1
+        f1/0 = Router-YiChun f1/0
+        f1/1 = Router-FuZhou f1/1
+        f2/0 = Router-PingXiang f1/0
+        f2/1 = Router-XinYu f1/0
+
+    [[router Router-ShangRao]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3005
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        slot2 = PA-2FE-TX
+        f0/0 = PC-ShangRao f0/0
+        f0/1 = Router-NanChang f1/0
+        f1/0 = Router-JiuJiang f1/0
+        f1/1 = Router-JingDeZhen f0/1
+        f2/0 = Router-YingTan f1/0
+
+    [[router Router-FuZhou]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3006
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        slot2 = PA-2FE-TX
+        f0/0 = PC-FuZhou f0/0
+        f0/1 = Router-NanChang f1/1
+        f1/0 = Router-GanZhou f1/0
+        f1/1 = Router-JiAn f1/1
+        f2/0 = Router-YingTan f0/1
+
+
+[localhost:7202]
+    port = 7202
+    udp = 12000
+    workingdir = ..\dynagen-tmp\router-2\
+
+    [[router Router-JiuJiang]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3007
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        f0/0 = PC-JiuJiang f0/0
+        f0/1 = Router-NanChang f2/0
+        f1/0 = Router-ShangRao f1/0
+
+    [[router Router-JingDeZhen]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3008
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        f0/0 = PC-JingDeZhen f0/0
+        f0/1 = Router-ShangRao f1/1
+
+    [[router Router-PingXiang]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3009
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        f0/0 = PC-PingXiang f0/0
+        f0/1 = Router-YiChun f1/1
+        f1/0 = Router-JiAn f2/0
+
+    [[router Router-XinYu]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3010
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        f0/0 = PC-XinYu f0/0
+        f0/1 = Router-YiChun f2/0
+        f1/0 = Router-JiAn f2/1
+
+    [[router Router-YingTan]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3011
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        f0/0 = PC-YingTan f0/0
+        f0/1 = Router-FuZhou f2/0
+        f1/0 = Router-ShangRao f2/0
+
+[localhost:7203]
+    port = 7203
+    udp = 13000
+    workingdir = ..\dynagen-tmp\PC\
+
+    [[router PC-NanChang]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5001
+        f0/0 = Router-NanChang f0/0
+
+    [[router PC-GanZhou]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5002
+        f0/0 = Router-GanZhou f0/0
+
+    [[router PC-YiChun]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5003
+        f0/0 = Router-YiChun f0/0
+
+    [[router PC-JiAn]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5004
+        f0/0 = Router-JiAn f0/0
+
+    [[router PC-ShangRao]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5005
+        f0/0 = Router-ShangRao f0/0
+
+    [[router PC-FuZhou]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5006
+        f0/0 = Router-FuZhou f0/0
+
+    [[router PC-JiuJiang]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5007
+        f0/0 = Router-JiuJiang f0/0
+
+    [[router PC-JingDeZhen]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5008
+        f0/0 = Router-JingDeZhen f0/0
+
+    [[router PC-PingXiang]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5009
+        f0/0 = Router-PingXiang f0/0
+
+    [[router PC-XinYu]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5010
+        f0/0 = Router-XinYu f0/0
+
+    [[router PC-YingTan]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5011
+        f0/0 = Router-YingTan f0/0

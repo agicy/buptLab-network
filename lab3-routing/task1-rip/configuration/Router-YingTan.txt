@@ -1,0 +1,32 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-YingTan
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.11.1 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.115.11 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.116.11 255.255.255.0
+        no shutdown
+    exit
+
+    router rip
+        version 2
+        network 204.210.11.0
+        network 204.210.115.0
+        network 204.210.116.0
+    exit
+exit

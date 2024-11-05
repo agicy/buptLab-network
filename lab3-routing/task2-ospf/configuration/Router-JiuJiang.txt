@@ -1,0 +1,31 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-JiuJiang
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.7.1 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.71.7 255.255.255.0
+        no shutdown
+    exit
+    interface f1/0
+        ip address 204.210.75.7 255.255.255.0
+        no shutdown
+    exit
+
+    router ospf 720
+        network 204.210.7.0 0.0.0.255 area 0
+        network 204.210.71.0 0.0.0.255 area 0
+        network 204.210.75.0 0.0.0.255 area 0
+    exit
+exit

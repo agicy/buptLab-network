@@ -1,0 +1,31 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-PingXiang
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.9.1 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.93.9 255.255.255.0
+        no shutdown
+    exit
+    interface f1/0
+        ip address 204.210.94.9 255.255.255.0
+        no shutdown
+    exit
+
+    router ospf 720
+        network 204.210.9.0 0.0.0.255 area 0
+        network 204.210.93.0 0.0.0.255 area 0
+        network 204.210.94.0 0.0.0.255 area 0
+    exit
+exit
