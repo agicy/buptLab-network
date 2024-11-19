@@ -1,0 +1,18 @@
+
+no
+
+
+
+enable
+
+configure terminal
+    hostname PC-H-S
+
+    no cdp run
+    no service dhcp
+    ip route 0.0.0.0 0.0.0.0 f0/0
+    interface f0/0
+        ip address 204.210.11.2 255.255.255.0
+        no shutdown
+    exit
+exit

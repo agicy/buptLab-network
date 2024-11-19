@@ -1,0 +1,45 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-NS
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.255.4 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        no shutdown
+    exit
+    interface f0/1.1
+        encapsulation dot1q 1
+        ip address 204.210.1.254 255.255.255.0
+    exit
+    interface f0/1.9
+        encapsulation dot1q 9
+        ip address 204.210.9.254 255.255.255.0
+    exit
+    interface f0/1.11
+        encapsulation dot1q 11
+        ip address 204.210.11.254 255.255.255.0
+    exit
+    interface f0/1.13
+        encapsulation dot1q 13
+        ip address 204.210.13.254 255.255.255.0
+    exit
+
+    router ospf 720
+        network 204.210.255.0 0.0.0.255 area 0
+        network 204.210.1.0 0.0.0.255 area 0
+        network 204.210.9.0 0.0.0.255 area 0
+        network 204.210.11.0 0.0.0.255 area 0
+        network 204.210.13.0 0.0.0.255 area 0
+    exit
+    ip route 0.0.0.0 0.0.0.0 204.210.255.1
+exit

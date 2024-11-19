@@ -1,0 +1,30 @@
+
+no
+
+
+
+enable
+
+configure terminal
+    hostname Switch-Core
+
+    no ip routing
+    no cdp run
+    no service dhcp
+
+    interface f1/0
+        no shutdown
+    exit
+
+    interface f1/1
+        no shutdown
+    exit
+
+    interface f1/2
+        no shutdown
+    exit
+
+    interface f1/3
+        no shutdown
+    exit
+exit

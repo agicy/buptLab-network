@@ -1,0 +1,65 @@
+autostart = true
+
+[localhost:7201]
+    port = 7201
+    udp = 11000
+    workingdir = ..\dynagen-tmp\default\
+
+    [[router SW1]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4001
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/1 = SW2 f1/2
+        f1/2 = SW2 f1/1
+        f1/11 = PC1 f0/0
+        f1/12 = PC2 f0/0
+
+    [[router SW2]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4002
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/1 = SW1 f1/2
+        f1/2 = SW1 f1/1
+        f1/13 = PC3 f0/0
+
+    [[router PC1]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5001
+        f0/0 = SW1 f1/11
+
+    [[router PC2]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5002
+        f0/0 = SW1 f1/12
+
+    [[router PC3]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5003
+        f0/0 = SW2 f1/13

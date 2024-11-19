@@ -1,0 +1,35 @@
+{
+    "startupDelay": 3,
+    "netfile": "network.net",
+    "deviceDistribution": [
+        {
+            "port": 7201,
+            "directory": "default"
+        }
+    ],
+    "autoConfiguration": {
+        "maxParallelTaskLimit": 64,
+        "devices": [
+            {
+                "port": 4001,
+                "file": "SW1.txt"
+            },
+            {
+                "port": 4002,
+                "file": "SW2.txt"
+            },
+            {
+                "port": 5001,
+                "file": "PC1.txt"
+            },
+            {
+                "port": 5002,
+                "file": "PC2.txt"
+            },
+            {
+                "port": 5003,
+                "file": "PC3.txt"
+            }
+        ]
+    }
+}

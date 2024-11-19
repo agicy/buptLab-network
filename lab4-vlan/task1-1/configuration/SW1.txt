@@ -1,0 +1,50 @@
+
+no
+
+
+
+enable
+vlan database
+    vlan 1
+    vlan 2
+    vlan 3
+exit
+
+configure terminal
+    hostname SW1
+
+    no ip routing
+    no cdp run
+    no service dhcp
+
+    interface vlan 1
+    exit
+    interface vlan 2
+    exit
+    interface vlan 3
+    exit
+
+    interface f1/11
+        switchport access vlan 2
+    exit
+
+    interface f1/12
+        switchport access vlan 3
+    exit
+
+    interface f1/1
+        no shutdown
+    exit
+
+    interface f1/2
+        no shutdown
+    exit
+
+    interface f1/11
+        no shutdown
+    exit
+
+    interface f1/12
+        no shutdown
+    exit
+exit

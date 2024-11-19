@@ -1,0 +1,26 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-InOut
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 114.114.0.1 255.255.0.0
+        no shutdown
+    exit
+    interface f0/1
+        ip address 204.210.255.1 255.255.255.0
+        no shutdown
+    exit
+
+    router ospf 720
+        network 204.210.255.0 0.0.0.255 area 0
+    exit
+    ip route 0.0.0.0 0.0.0.0 f0/0
+exit

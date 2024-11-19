@@ -1,0 +1,82 @@
+
+no
+
+
+
+enable
+vlan database
+    vlan 1
+    vlan 2
+    vlan 3
+    vlan 4
+    vlan 5
+    vlan 6
+    vlan 7
+    vlan 8
+    vlan 9
+    vlan 10
+    vlan 11
+    vlan 12
+    vlan 13
+exit
+
+configure terminal
+    hostname Switch-SCI
+
+    no ip routing
+    no cdp run
+    no service dhcp
+
+    interface vlan 1
+    exit
+    interface vlan 2
+    exit
+    interface vlan 3
+    exit
+    interface vlan 4
+    exit
+    interface vlan 5
+    exit
+    interface vlan 6
+    exit
+    interface vlan 7
+    exit
+    interface vlan 8
+    exit
+    interface vlan 9
+    exit
+    interface vlan 10
+    exit
+    interface vlan 11
+    exit
+    interface vlan 12
+    exit
+    interface vlan 13
+    exit
+
+    interface f1/0
+        switchport mode trunk
+        switchport trunk allowed vlan all
+    exit
+
+    interface f1/1
+        switchport mode trunk
+        switchport trunk allowed vlan all
+    exit
+
+    interface f1/2
+        switchport access vlan 10
+    exit
+
+    interface f1/0
+        no shutdown
+    exit
+
+    interface f1/1
+        no shutdown
+    exit
+
+    interface f1/2
+        no shutdown
+    exit
+exit

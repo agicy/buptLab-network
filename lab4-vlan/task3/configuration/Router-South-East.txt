@@ -1,0 +1,50 @@
+
+no
+
+
+
+enable
+configure terminal
+    hostname Router-South-East
+
+    no cdp run
+    no service dhcp
+
+    interface f0/0
+        ip address 204.210.255.3 255.255.255.0
+        no shutdown
+    exit
+    interface f0/1
+        no shutdown
+    exit
+    interface f0/1.2
+        encapsulation dot1q 2
+        ip address 204.210.2.254 255.255.255.0
+    exit
+    interface f0/1.3
+        encapsulation dot1q 3
+        ip address 204.210.3.254 255.255.255.0
+    exit
+    interface f0/1.4
+        encapsulation dot1q 4
+        ip address 204.210.4.254 255.255.255.0
+    exit
+    interface f0/1.8
+        encapsulation dot1q 8
+        ip address 204.210.8.254 255.255.255.0
+    exit
+    interface f0/1.10
+        encapsulation dot1q 10
+        ip address 204.210.10.254 255.255.255.0
+    exit
+
+    router ospf 720
+        network 204.210.255.0 0.0.0.255 area 0
+        network 204.210.2.0 0.0.0.255 area 0
+        network 204.210.3.0 0.0.0.255 area 0
+        network 204.210.4.0 0.0.0.255 area 0
+        network 204.210.8.0 0.0.0.255 area 0
+        network 204.210.10.0 0.0.0.255 area 0
+    exit
+    ip route 0.0.0.0 0.0.0.0 204.210.255.1
+exit

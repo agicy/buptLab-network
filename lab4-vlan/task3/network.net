@@ -1,0 +1,392 @@
+autostart = true
+
+[localhost:7201]
+    port = 7201
+    udp = 11000
+    workingdir = ..\dynagen-tmp\router\
+
+    [[router Router-InOut]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3001
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        f0/0 = PC-OUT f0/0
+        f0/1 = Switch-Core f1/0
+
+    [[router Router-North-East]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3002
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        slot1 = PA-2FE-TX
+        f0/0 = Switch-Core f1/1
+        f0/1 = Switch-DMDA f1/3
+
+    [[router Router-South-East]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3003
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        f0/0 = Switch-Core f1/2
+        f0/1 = Switch-S3 f1/2
+
+    [[router Router-NS]]
+        image = ..\..\..\..\runtime\ios\unzip-c7200-is-mz.122-37.bin
+        idlepc = 0x6067c820
+        model = 7200
+        console = 3004
+        npe = npe-400
+        ram = 64
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot0 = PA-C7200-IO-2FE
+        f0/0 = Switch-Core f1/3
+        f0/1 = Switch-S f1/2
+
+[localhost:7202]
+    port = 7202
+    udp = 12000
+    workingdir = ..\dynagen-tmp\switch-1\
+
+    [[router Switch-CSS]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4001
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-N f1/1
+        f1/1 = Switch-DMDA f1/0
+        f1/2 = PC-CSS f0/0
+
+    [[router Switch-DMDA]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4002
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-CSS f1/1
+        f1/1 = Switch-IEA f1/0
+        f1/2 = PC-DMDA f0/0
+
+    [[router Switch-IEA]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4003
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-DMDA f1/1
+        f1/1 = Switch-S1 f1/0
+        f1/2 = PC-IEA f0/0
+
+    [[router Switch-S1]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4004
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-IEA f1/1
+        f1/1 = Switch-S2 f1/0
+        f1/2 = PC-NORMAL-3 f0/0
+
+    [[router Switch-S2]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4005
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-S1 f1/1
+        f1/1 = Switch-S3 f1/0
+        f1/2 = PC-H-S2 f0/0
+        f1/3 = PC-MTRI-S2 f0/0
+
+[localhost:7203]
+    port = 7203
+    udp = 13000
+    workingdir = ..\dynagen-tmp\switch-2\
+
+    [[router Switch-S3]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4006
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-S2 f1/1
+        f1/1 = Switch-SCI f1/0
+        f1/2 = Router-South-East f0/1
+        f1/3 = PC-ICE-S3 f0/0
+        f1/4 = PC-EE-S3 f0/0
+        f1/5 = PC-SCI-S3 f0/0
+        f1/6 = PC-CS-S3 f0/0
+        f1/7 = PC-IC-S3 f0/0
+
+    [[router Switch-SCI]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4007
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-S3 f1/1
+        f1/1 = Switch-S f1/0
+        f1/2 = PC-SCI f0/0
+
+    [[router Switch-S]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4008
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-SCI f1/1
+        f1/1 = Switch-N f1/0
+        f1/2 = Router-NS f0/1
+        f1/3 = PC-NORMAL-2 f0/0
+        f1/4 = PC-EM-S f0/0
+        f1/5 = PC-H-S f0/0
+
+    [[router Switch-N]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4009
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Switch-S f1/1
+        f1/1 = Switch-CSS f1/0
+        f1/2 = PC-NORMAL-1 f0/0
+        f1/3 = PC-AI-N f0/0
+
+    [[router Switch-Core]]
+        image = ..\..\..\..\runtime\ios\unzip-c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
+        model = 3640
+        console = 4010
+        ram = 128
+        mmap = false
+        confreg = 0x2142
+        exec_area = 64
+        slot1 = NM-16ESW
+        f1/0 = Router-InOut f0/1
+        f1/1 = Router-North-East f0/0
+        f1/2 = Router-South-East f0/0
+        f1/3 = Router-NS f0/0
+
+[localhost:7204]
+    port = 7204
+    udp = 14000
+    workingdir = ..\dynagen-tmp\pc\
+
+    [[router PC-CSS]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5001
+
+    [[router PC-DMDA]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5002
+
+    [[router PC-IEA]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5003
+
+    [[router PC-NORMAL-3]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5004
+
+    [[router PC-H-S2]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5005
+
+    [[router PC-MTRI-S2]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5006
+
+    [[router PC-ICE-S3]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5007
+
+    [[router PC-EE-S3]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5008
+
+    [[router PC-SCI-S3]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5009
+
+    [[router PC-CS-S3]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5010
+
+    [[router PC-IC-S3]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5011
+
+    [[router PC-SCI]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5012
+
+    [[router PC-H-S]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5013
+
+    [[router PC-EM-S]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5014
+
+    [[router PC-NORMAL-2]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5015
+
+    [[router PC-AI-N]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5016
+
+    [[router PC-NORMAL-1]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5017
+
+    [[router PC-OUT]]
+        model = 2621
+        ram = 20
+        mmap = false
+        image = ..\..\..\..\runtime\ios\unzip-c2600-i-mz.121-3.T.bin
+        idlepc = 0x80357960
+        confreg = 0x2142
+        console = 5018
