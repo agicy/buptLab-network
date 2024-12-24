@@ -1,0 +1,75 @@
+{
+    "startupDelay": 3,
+    "netfile": "network.net",
+    "deviceDistribution": [
+        {
+            "port": 7201,
+            "directory": "router"
+        },
+        {
+            "port": 7202,
+            "directory": "switch"
+        },
+        {
+            "port": 7203,
+            "directory": "pc"
+        }
+    ],
+    "autoConfiguration": {
+        "maxParallelTaskLimit": 64,
+        "devices": [
+            {
+                "port": 3001,
+                "file": "Router-1.txt"
+            },
+            {
+                "port": 3002,
+                "file": "Router-2.txt"
+            },
+            {
+                "port": 3003,
+                "file": "Router-3.txt"
+            },
+            {
+                "port": 3004,
+                "file": "Router-4.txt"
+            },
+            {
+                "port": 4001,
+                "file": "Switch-Core.txt"
+            },
+            {
+                "port": 5001,
+                "file": "PC-1.txt"
+            },
+            {
+                "port": 5002,
+                "file": "PC-2.txt"
+            },
+            {
+                "port": 5003,
+                "file": "PC-3.txt"
+            },
+            {
+                "port": 5004,
+                "file": "PC-4.txt"
+            },
+            {
+                "port": 5005,
+                "file": "PC-5.txt"
+            },
+            {
+                "port": 5006,
+                "file": "PC-6.txt"
+            },
+            {
+                "port": 5007,
+                "file": "PC-7.txt"
+            },
+            {
+                "port": 5008,
+                "file": "PC-8.txt"
+            }
+        ]
+    }
+}

@@ -1,0 +1,37 @@
+# H3C 路由器配置命令模板
+# 检查当前路由器信息
+display device
+
+# 进入配置模式
+system-view
+
+    # 配置 hostname，方便查看
+    sysname Router-<router_id>
+
+    # 配置接口 interface_0 的 IPv4 地址
+    interface <interface_0>
+        ip address 204.210.255.<router_id> 255.255.255.0
+        undo shutdown
+    quit
+
+    # 配置接口 interface_1 的 IPv4 地址
+    interface <interface_1>
+        ip address 204.210.<router_id>.254 255.255.255.0
+        undo shutdown
+    quit
+
+    # 配置 OSPFv2 协议
+    ospf 720
+
+        # 配置区域为 area 0
+        area 0.0.0.0
+
+            # 将两个网络加入 area 0
+            network 204.210.255.0 0.0.0.255
+            network 204.210.<router_id>.0 0.0.0.255
+
+        quit
+
+    quit
+
+quit

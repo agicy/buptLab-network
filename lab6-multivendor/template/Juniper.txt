@@ -1,0 +1,35 @@
+# Juniper 路由器配置命令模板
+# 检查当前路由器信息
+show version
+
+# 进入配置模式
+configure
+
+    # 配置 hostname，方便查看
+    set system host-name Router-<router_id>
+
+    # 配置接口 IPv4 地址
+    set interfaces <interface_0> unit 0 family inet address 204.210.255.<router_id>/24
+    set interfaces <interface_1> unit 0 family inet address 204.210.<router_id>.254/24
+
+    # 配置 OSPFv2 协议，将两个 interface 加入 area 0
+    set protocols ospf area 0.0.0.0 interface <interface_0>
+    set protocols ospf area 0.0.0.0 interface <interface_1>
+
+    # 下面配置安全策略
+    # 建立区域 Trust，允许所有协议和服务的流量流入
+    set security zones security-zone Trust host-inbound-traffic protocols all
+    set security zones security-zone Trust host-inbound-traffic system-services all
+
+    # 允许区域 Trust 到自身的所有流量转发
+    set security policies from-zone Trust to-zone Trust policy default-permit match source-address any
+    set security policies from-zone Trust to-zone Trust policy default-permit match destination-address any
+    set security policies from-zone Trust to-zone Trust policy default-permit match application any
+    set security policies from-zone Trust to-zone Trust policy default-permit then permit
+
+    # 将两个 interface 加入区域 Trust
+    set security zones security-zone Trust interfaces <interface_0>
+    set security zones security-zone Trust interfaces <interface_1>
+
+# 提交
+commit

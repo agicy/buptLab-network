@@ -1,0 +1,23 @@
+
+no
+
+
+
+enable
+
+configure terminal
+hostname Router-4
+interface f0/0
+ip address 204.210.255.4 255.255.255.0
+no shutdown
+exit
+interface f0/1
+ip address 204.210.4.254 255.255.255.0
+no shutdown
+exit
+router ospf 720
+router-id 0.0.0.4
+network 204.210.255.0 0.0.0.255 area 0
+network 204.210.4.0 0.0.0.255 area 0
+exit
+exit
